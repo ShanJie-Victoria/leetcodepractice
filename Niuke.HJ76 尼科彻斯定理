@@ -1,0 +1,27 @@
+/*
+描述
+验证尼科彻斯定理，即：任何一个整数m的立方都可以写成m个连续奇数之和。
+输入一个正整数m（m≤100），将m的立方写成m个连续奇数之和的形式输出。
+
+输入描述：
+输入一个int整数
+
+输出描述：
+输出分解后的string
+*/
+//不难发现，第一个数等于𝑚∗𝑚−(𝑚−1) m∗m−(m−1)，那我们只要从这个数开始连续遍历输出m个奇数即可
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int m;
+    cin >> m;
+    int n = m*m - (m-1);
+    cout << n;
+    for(int i = 1;i<m;i++)
+    {
+        n = n+2;
+        cout << "+"<<n;
+    }
+}
