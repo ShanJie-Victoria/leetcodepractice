@@ -1,0 +1,42 @@
+/*
+输入数据按下列顺序输入：
+1 表格的行列值
+2 要交换的两个单元格的行列值
+3 输入要插入的行的数值
+4 输入要插入的列的数值
+5 输入要查询的单元格的坐标
+*/
+#include <iostream>
+using namespace std;
+
+int main() {
+    //初始化m∗n 大小的表格
+    int m, n;
+    while (cin >> m >> n) {
+        if (m <= 9 && n <= 9) cout << "0" << endl;
+        else cout << "-1" << endl;
+        //交换坐标
+        int x1, y1, x2, y2;
+        cin >> x1 >> y1 >> x2 >> y2;
+        if (x1 >= m || y1 >= n || x2 >= m || y2 >= n) cout << "-1" << endl;
+        else cout << "0" << endl;
+        //在第x 行上方添加一行
+        int x;
+        cin >> x;
+        if (x < m && m + 1 <= 9) {
+            cout << "0" << endl;
+            //m++;
+        } else cout << "-1" << endl;
+        //左边添加一列
+        int y;
+        cin >> y;
+        if (y < n && n + 1 <= 9) {
+            cout << "0" << endl;
+            //n++;
+        } else cout << "-1" << endl;
+        //查找坐标为(x,y) 的单元格的值
+        cin >> x >> y;
+        if (x < m && y < n) cout << "0" << endl;
+        else cout << "-1" << endl;
+    }
+}
