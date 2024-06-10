@@ -1,0 +1,35 @@
+//请实现一个计票统计系统。你会收到很多投票，其中有合法的也有不合法的，请统计每个候选人得票的数量以及不合法的票数。
+（注：不合法的投票指的是投票的名字不存在n个候选人的名字中！！）
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n, m,cnt =0;
+    vector<string>vecs;
+    vector<int>veci;
+    string tmp;
+
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> tmp;
+        vecs.push_back(tmp);
+        veci.push_back(0);
+    }
+    cin >> m;
+    for(int i=0;i<m;i++)
+    {
+        cin >>tmp;
+        bool iscontain = false;
+        for (int j = 0; j < n; j++){
+            if(tmp == vecs[j]) {veci[j]++;iscontain=true;break;}
+        }
+        if(iscontain == false) cnt++;
+    }
+
+    for(int i = 0; i < n; i++){
+        cout << vecs[i] << " : "<< veci[i]<<endl;
+    }
+    cout <<"Invalid : "<<cnt<<endl;
+}
