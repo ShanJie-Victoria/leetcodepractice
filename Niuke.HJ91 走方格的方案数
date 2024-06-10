@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+//递归：每一步都有两种走法，向下走(i+1,j)或者向右走(i,j+1);在边界除外，边界只有1种走法
+int recursion(int i,int j,int m, int n){
+    if(n==i||m==j)//到边界时只能向下走或者向右走选一
+        return 1;
+    return recursion(i+1, j, m, n)+recursion(i, j+1, m, n);
+}
+ 
+int main() {
+    int m,n;
+    cin>>m>>n;
+    cout<<recursion(0, 0, m, n)<<endl;
+    return 0;
+}
